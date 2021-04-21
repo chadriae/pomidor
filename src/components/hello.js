@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-const Hello = () => {
-    <p>{"Hello, World!"}</p>
-}
+const Hello = () => <p>{"Hello, World!"}</p>;
 
-export default Hello
+export default Hello;
