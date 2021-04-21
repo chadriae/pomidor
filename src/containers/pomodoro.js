@@ -1,21 +1,35 @@
+import {useCallback, useState} from "react"
 import {useTimer} from "../core/hooks/use-timer"
 
 import classnames from "classnames";
 import Display from "../components/display";
 import Tools from "../components/tools";
+import Modal from "../components/modal";
 
 import {SESSION_DURATION} from "../core/constants"
 
 const Pomodoro = () => {
+    const [showModal, setShowModal] = useState(false);
+
     const [{running, seconds}, {setRunning, setSeconds}] = useTimer(
         SESSION_DURATION,
         false,
-        () => console.log("Timer is finished!"));
+        () => setShowModal(true));
 
-    const handleMinus = () => setSeconds(value => Math.max(value - 60, 0))
-    const handleReset = () => setSeconds(SESSION_DURATION)
-    const handlePlayPause = () => setRunning(!running)
-    const handlePlus = () => setSeconds( value => value + 60 )
+    const handleMinus = useCallback(() => setSeconds(value => Math.max(value - 60, 0)), [setSeconds]);
+    const handleReset = useCallback(() => setSeconds(SESSION_DURATION), [setSeconds]);
+    const handlePlayPause = useCallback(() => setRunning(val => !val), [setRunning]);
+    const handlePlus = useCallback(() => setSeconds( value => value + 60 ), [setSeconds]);
+
+    const handleCloseModal = useCallback(() => {
+        setShowModal(false);
+        handleReset();
+    }, [setShowModal, handleReset]);
+    const handleRestartModal = useCallback(() => {
+        handleCloseModal();
+        handlePlayPause(); 
+    },[handleCloseModal, handlePlayPause])
+
 
     return (
         <div className={classnames("columns", "is-mobile", "is-centered")}>
@@ -29,6 +43,7 @@ const Pomodoro = () => {
                     onPlus={handlePlus}
                 />
             </div>
+            {showModal && <Modal onClose={handleCloseModal} onRestart={handleRestartModal} />}
         </div>
     )
 };
