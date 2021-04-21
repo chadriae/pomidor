@@ -1,1 +1,1 @@
-export const NPSP = "\u00a0";
+export const NBSP = "\u00a0";
