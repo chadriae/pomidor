@@ -7,7 +7,8 @@
 ## About
 
 A small pomodoro with React, Bulma & Parcel.
-Hosted on [netlify](https://epic-franklin-fb6b5a.netlify.app/).
+
+<!-- Hosted on [netlify](https://epic-franklin-fb6b5a.netlify.app/). -->
 
 > 👉 _pomidor_ is 🇺🇿 Uzbek word for "tomato" 😉
 
@@ -23,14 +24,14 @@ This repository is the correction reference, which was also recorded and availab
 
 ## Installation
 
-- `npm install`
-- `npm run build`
+-   `npm install`
+-   `npm run build`
 
 ## Usage
 
 Locally:
 
-- `npm run work`
+-   `npm run work`
 
 ---
 
