@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Button from "./button"
 
-import {NBSP} from "../../core/constans"
+import {NBSP} from "../../core/constants"
 
 const Tools = ({running = false, onMinus, onReset, onPlayPause, onPlus}) => (
     <div className={"is-flex"}>
@@ -19,7 +19,7 @@ const Tools = ({running = false, onMinus, onReset, onPlayPause, onPlus}) => (
        />
         {NBSP}
         <Button
-            label={running? "pause" : "start"}
+            label={running? "Pause" : "Start"}
             title={`${running? "Pause" : "Start"} the timer`}
             onClick={onPlayPause}
        />
@@ -30,8 +30,6 @@ const Tools = ({running = false, onMinus, onReset, onPlayPause, onPlus}) => (
             disabled={running}
             onClick={onPlus}
        />
-
-
     </div>
 )
 

@@ -4,7 +4,7 @@ import Tools from "../components/tools";
 
 const Pomodoro = () => {
     const seconds = 1500;
-    const running = true;
+    const running = false;
 
     const handleMinus = () => console.log("Minus")
     const handleReset = () => console.log("Reset")
@@ -13,7 +13,7 @@ const Pomodoro = () => {
 
     return (
         <div className={classnames("columns", "is-mobile", "is-centered")}>
-            <div className={classnames("column", "is-half")}>
+            <div className={classnames("column", "is-half", "is-centered")}>
                 <Display seconds={seconds} />
                 <Tools
                     running={running}

@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 const Button = ({label, title, disabled=false, onClick}) => (
     <button
-        className={classnames("button", "is-primary", "is-medium", "is-full-width", "is-link")}
+        className={classnames("button", "is-link", "is-medium", "is-fullwidth")}
         type={"button"}
         label={title|label}
         disabled={disabled}
